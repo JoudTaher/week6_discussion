@@ -22,10 +22,15 @@
  */
 
 /* YOUR CODE: */
-
-
-
-
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    z-index: 1000;
+    background-color: #fff;
+    color: #2c3e50;
+    padding: 0.75rem 1rem;
+}
 /* --- Step 2: Show the Skip Link on Focus ---
  *
  * TODO: When the skip-link receives :focus, move it back
@@ -35,10 +40,9 @@
  */
 
 /* YOUR CODE: */
-
-
-
-
+.skip-link:focus {
+    top: 0;
+}
 /* --- Step 3: Focus Styles on Nav Links ---
  *
  * TODO: Add a clearly visible focus indicator to nav a
@@ -50,10 +54,10 @@
  */
 
 /* YOUR CODE: */
-
-
-
-
+nav a:focus {
+    outline: 3px solid #f1c40f;
+    outline-offset: 3px;
+}
 
 /* --- Step 4: Mobile Base Styles (1 Column) ---
  *
@@ -65,10 +69,12 @@
  */
 
 /* YOUR CODE for .content-container: */
-
-
-
-
+.content-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+}
 /* --- Step 5: Tablet at 768px (2 Columns) ---
  *
  * TODO: Write a media query for 768px and up.
@@ -78,10 +84,17 @@
  */
 
 /* YOUR CODE: */
+@media (min-width: 768px) {
+    .content-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem;
+    }
 
-
-
-
+    .content-section:nth-child(3),
+    .content-section:nth-child(6) {
+        grid-column: 1 / -1;
+    }
+}
          /* --- Step 6: Make Cards 3 and 6 Span All Columns ---
          *
          * GOAL: Make the 3rd and 6th content cards span across
